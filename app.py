@@ -12,7 +12,6 @@ DB_FILE = 'conversations.db'
 def init_db():
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
-    # Create tables cleanly to store metrics safely
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS logs (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -23,6 +22,10 @@ def init_db():
     ''')
     conn.commit()
     conn.close()
+
+# 🔥 CRITICAL FIX: Run initialization at the top-level lifecycle 
+# This ensures Render/Gunicorn sets up the database table correctly!
+init_db()
 
 # Function to save a chat interaction
 def log_conversation(user_msg, bot_resp):
@@ -42,7 +45,6 @@ def get_best_match(user_input):
     best_ratio = 0.0
     best_match_key = None
     
-    # Reload dataset dynamically on every query 
     jis_knowledge = load_knowledge_base()
 
     for keyword_group in jis_knowledge:
@@ -136,5 +138,4 @@ def view_logs():
         return f"Database Fetch Error: {str(e)}"
 
 if __name__ == '__main__':
-    init_db()
     app.run(debug=True, port=5000)
