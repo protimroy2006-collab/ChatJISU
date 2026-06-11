@@ -3,55 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATJIS - Professional JIS University Assistant</title>
-    <!-- Linking our separated production stylesheet -->
+    <title>JIS University - Future Start Here</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
+<body class="landing-page">
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i> JISU
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">Admissions</a>
+            <a href="#">Campus</a>
+        </div>
+        <a href="/chatbot" class="btn-primary">Ask CHATJIS</a>
+    </nav>
 
-    <!-- Platform Application Sidebar Menu -->
-    <div class="sidebar">
-        <div>
-            <div class="sidebar-brand">CHATJIS</div>
-            <div class="sidebar-menu">
-                <div class="menu-item active">🏫 University Guide</div>
-                <div class="menu-item">📝 Admissions</div>
-                <div class="menu-item">📅 Schedules</div>
-                <div class="menu-item">🌟 Campus Life</div>
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>A Better Learning<br>Journey Future Start Here</h1>
+            <p>Experience world-class education at JIS University. Explore our campus, academic programs, and vibrant student life to generate your future success.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Take Course <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="/chatbot" class="btn-secondary">Launch AI Assistant</a>
             </div>
         </div>
-        <div class="menu-item" style="border-top: 1px solid rgba(72, 202, 228, 0.2); border-radius: 0; padding-top: 18px; margin: 0 -16px; padding-left: 16px; padding-right: 16px;">
-            Status: Online
-        </div>
-    </div>
-
-    <!-- Active Main Application Window Dashboard -->
-    <div class="main-chat-window">
-        <div class="app-header">
-            <h1>JIS University Assistant</h1>
-        </div>
-
-        <div class="chat-box" id="chatBox">
-            <div class="message-row bot-row">
-                <div class="message bot-message">
-                    👋 Welcome to CHATJIS! I'm your personal JIS University assistant. Ask me about admissions, campus life, exam schedules, or anything else about the university!
+        <div class="hero-image">
+            <div class="circle-image-wrapper">
+                <img src="{{ url_for('static', filename='images/campus.jpg') }}" alt="JIS University Campus">
+                <div class="floating-badge badge-1">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Latest Workshop</span>
                 </div>
             </div>
-            <!-- Bouncing Dots Interface Marker -->
-            <div class="typing-indicator" id="typingIndicator">
-                <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <section class="features-section">
+        <div class="feature-card">
+            <div class="icon-wrapper orange-bg"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <h3>Exclusive Coach</h3>
+            <p>Learn from industry leaders and experienced educators who guide your career.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrapper orange-bg"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3>Creative Minds</h3>
+            <p>Foster innovation and hands-on learning experiences in modern labs.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrapper orange-bg"><i class="fa-solid fa-video"></i></div>
+            <h3>Video Tutorials</h3>
+            <p>Access modern digital learning tools and high-quality course materials.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrapper orange-bg"><i class="fa-solid fa-trophy"></i></div>
+            <h3>Worlds Record</h3>
+            <p>Be part of a globally recognized institution with outstanding achievements.</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-image">
+            <div class="circle-image-wrapper border-orange">
+                <img src="{{ url_for('static', filename='images/convocation.jpg') }}" alt="JIS University Convocation">
             </div>
         </div>
-
-        <div class="input-wrapper">
-            <div class="input-container">
-                <input type="text" id="userInput" placeholder="Ask anything about JIS University..." onkeypress="handleKeyPress(event)" autocomplete="off">
-                <button onclick="sendMessage()">Send</button>
+        <div class="about-content">
+            <h4 class="section-subtitle">About Us</h4>
+            <h2>Creating a Lifelong Learning Best Community</h2>
+            <p>JIS University offers a dynamic environment where students can thrive both academically and personally. Our state-of-the-art facilities and flexible learning options ensure you get the best experience.</p>
+            
+            <div class="about-list">
+                <div class="list-item">
+                    <i class="fa-solid fa-desktop"></i>
+                    <div>
+                        <h5>Flexible Classes</h5>
+                        <p>Learn at your own pace with our hybrid academic models.</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="fa-solid fa-laptop-house"></i>
+                    <div>
+                        <h5>Live Class from anywhere</h5>
+                        <p>Access education remotely without boundaries or limitations.</p>
+                    </div>
+                </div>
             </div>
+            
+            <a href="#" class="btn-primary mt-20">Discover More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-    </div>
-
-    <!-- Linking our separated production JavaScript mechanics engine -->
-    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+    </section>
 </body>
 </html>

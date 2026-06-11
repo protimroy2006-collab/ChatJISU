@@ -1,8 +1,20 @@
-from flask import Flask, render_template, request, jsonify
-import random
+from flask import Flask, render_template, request, jsonify, Response
+from functools import wraps
 import json
 import sqlite3
-from difflib import SequenceMatcher
+import os
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+# Load environment variables
+load_dotenv(override=True)
+
+# Configure Gemini AI
+api_key = os.getenv("GEMINI_API_KEY")
+if api_key:
+    genai.configure(api_key=api_key)
+else:
+    print("WARNING: GEMINI_API_KEY not found in environment.")
 
 app = Flask(__name__)
 
@@ -10,18 +22,23 @@ DB_FILE = 'conversations.db'
 
 # Function to initialize the database table
 def init_db():
-    conn = sqlite3.connect(DB_FILE)
-    cursor = conn.cursor()
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS logs (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_message TEXT NOT NULL,
-            bot_reply TEXT NOT NULL,
-            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
-        )
-    ''')
-    conn.commit()
-    conn.close()
+    try:
+        conn = sqlite3.connect(DB_FILE)
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS logs (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_message TEXT NOT NULL,
+                bot_reply TEXT NOT NULL,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+        conn.commit()
+    except sqlite3.Error as e:
+        print(f"CRITICAL ERROR: Failed to initialize database: {e}")
+    finally:
+        if 'conn' in locals() and conn:
+            conn.close()
 
 # 🔥 CRITICAL FIX: Run initialization at the top-level lifecycle 
 # This ensures Render/Gunicorn sets up the database table correctly!
@@ -29,45 +46,71 @@ init_db()
 
 # Function to save a chat interaction
 def log_conversation(user_msg, bot_resp):
-    conn = sqlite3.connect(DB_FILE)
-    cursor = conn.cursor()
-    cursor.execute('INSERT INTO logs (user_message, bot_reply) VALUES (?, ?)', (user_msg, bot_resp))
-    conn.commit()
-    conn.close()
+    try:
+        conn = sqlite3.connect(DB_FILE)
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO logs (user_message, bot_reply) VALUES (?, ?)', (user_msg, bot_resp))
+        conn.commit()
+    except sqlite3.Error as e:
+        print(f"DATABASE ERROR (Logging): Could not save conversation. {e}")
+    finally:
+        if 'conn' in locals() and conn:
+            conn.close()
 
 # Function to read the knowledge base from our JSON file
 def load_knowledge_base():
-    with open('knowledge.json', 'r', encoding='utf-8') as file:
-        return json.load(file)
+    try:
+        if not os.path.exists('knowledge.json'):
+            print("WARNING: knowledge.json not found. Creating a default one.")
+            default_kb = {"hi": ["Hello!"]}
+            with open('knowledge.json', 'w', encoding='utf-8') as f:
+                json.dump(default_kb, f)
+            return default_kb
+            
+        with open('knowledge.json', 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except json.JSONDecodeError as e:
+        print(f"JSON ERROR: The knowledge.json file is corrupted or improperly formatted: {e}")
+        return {}
+    except Exception as e:
+        print(f"FILE ERROR: Could not read knowledge base: {e}")
+        return {}
 
 def get_best_match(user_input):
-    user_input = user_input.lower()
-    best_ratio = 0.0
-    best_match_key = None
-    
-    jis_knowledge = load_knowledge_base()
-
-    for keyword_group in jis_knowledge:
-        words = user_input.split()
-        any_word_match = any(word in keyword_group for word in words if len(word) > 3)
-        ratio = SequenceMatcher(None, user_input, keyword_group).ratio()
+    try:
+        jis_knowledge = load_knowledge_base()
         
-        if any_word_match:
-            ratio += 0.4
-
-        if ratio > best_ratio:
-            best_ratio = ratio
-            best_match_key = keyword_group
-
-    if best_ratio > 0.3 and best_match_key:
-        return random.choice(jis_knowledge[best_match_key])
+        # Prepare the system prompt using the knowledge base
+        system_instruction = (
+            "You are CHATJIS, a helpful, professional AI assistant for JIS University. "
+            "Use the following knowledge base to answer the user's questions accurately. "
+            "If the user asks something completely unrelated to the university or general helpful tasks, politely guide them back. "
+            "Knowledge Base:\n" + json.dumps(jis_knowledge, indent=2)
+        )
         
-    return "I am still learning the various ways students ask questions about JIS University. Could you please rephrase your query or try words like 'admission', 'exams', or 'placement'?"
+        # Initialize the model
+        model = genai.GenerativeModel(
+            model_name="gemini-2.5-flash",
+            system_instruction=system_instruction
+        )
+        
+        response = model.generate_content(user_input)
+        return response.text
+    except Exception as e:
+        import traceback
+        print(f"Error generating AI response: {e}")
+        traceback.print_exc()
+        return f"AI Error: {str(e)}"
 
 # Route to serve our frontend UI dashboard webpage
 @app.route('/')
 def home():
     return render_template('index.html')
+
+# Route to serve the Chatbot interface
+@app.route('/chatbot')
+def chatbot():
+    return render_template('chat.html')
 
 # API Endpoint for processing incoming chat payloads
 @app.route('/chat', methods=['POST'])
@@ -80,8 +123,31 @@ def chat():
     
     return jsonify({"reply": bot_reply})
 
+def check_auth(username, password):
+    """Check if a username / password combination is valid."""
+    admin_user = os.getenv("ADMIN_USERNAME", "admin")
+    admin_pass = os.getenv("ADMIN_PASSWORD", "jisadmin123")
+    return username == admin_user and password == admin_pass
+
+def authenticate():
+    """Sends a 401 response that enables basic auth"""
+    return Response(
+        'Could not verify your access level for that URL.\n'
+        'You have to login with proper credentials', 401,
+        {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+        return f(*args, **kwargs)
+    return decorated
+
 # Secret administrative analytics console dashboard to monitor user activity
 @app.route('/logs')
+@requires_auth
 def view_logs():
     try:
         conn = sqlite3.connect(DB_FILE)

@@ -28,5 +28,25 @@
     "bye goodbye exit thank you clear close": [
         "Thank you for using CHATJIS! Best of luck with your studies.",
         "Goodbye! Have a great day at campus!"
+    ],
+    "fees structure cost tuition semester fees scholarship financial aid": [
+        "The fee structure varies by course. You can check the detailed fee breakdown for each program on the JIS University official website.",
+        "JIS University offers various scholarships based on academic merit, sports quota, and government schemes like the Swami Vivekananda Merit-cum-Means Scholarship."
+    ],
+    "transport bus facility route commute traveling shuttle": [
+        "JIS University provides dedicated transport facilities with buses plying across major routes in Kolkata and surrounding areas.",
+        "Students can opt for the transport facility during admission or at the start of the semester by contacting the transport department."
+    ],
+    "library books digital resources reading room timings access": [
+        "The central library is well-equipped with thousands of books, journals, and e-resources. The reading room is open during college hours for all students.",
+        "Students can access the digital library portal for research papers and e-books using their university credentials."
+    ],
+    "faculty teachers professors hod dean contact vice chancellor": [
+        "JIS University boasts highly qualified faculty members from reputed institutions. Many hold Ph.D.s and have extensive industry experience.",
+        "You can find contact details for respective Deans and HODs in the departmental section of the university website."
+    ],
+    "syllabus academic calendar holidays vacation summer winter break": [
+        "The academic calendar and detailed course syllabus are provided to students at the beginning of each semester.",
+        "Holiday lists and vacation schedules (summer/winter breaks) are published on the official notice board and student portal."
     ]
 }

@@ -5,6 +5,12 @@ function handleKeyPress(event) {
     }
 }
 
+function sendQuickReply(text) {
+    const inputField = document.getElementById('userInput');
+    inputField.value = text;
+    sendMessage();
+}
+
 function sendMessage() {
     const inputField = document.getElementById('userInput');
     const sendBtn = inputField.parentElement.querySelector('button');
@@ -55,10 +61,15 @@ function sendMessage() {
             const botRow = document.createElement('div');
             botRow.className = 'message-row bot-row';
 
+            const botAvatar = document.createElement('div');
+            botAvatar.className = 'bot-avatar';
+            botAvatar.innerHTML = '<i class="fa-solid fa-user-tie"></i>';
+
             const botDiv = document.createElement('div');
             botDiv.className = 'message bot-message';
             botDiv.textContent = data.reply;
 
+            botRow.appendChild(botAvatar);
             botRow.appendChild(botDiv);
             chatBox.insertBefore(botRow, indicator);
             chatBox.scrollTop = chatBox.scrollHeight;
@@ -77,10 +88,15 @@ function sendMessage() {
         const botRow = document.createElement('div');
         botRow.className = 'message-row bot-row';
 
+        const botAvatar = document.createElement('div');
+        botAvatar.className = 'bot-avatar';
+        botAvatar.innerHTML = '<i class="fa-solid fa-user-tie"></i>';
+
         const botDiv = document.createElement('div');
         botDiv.className = 'message bot-message';
         botDiv.textContent = '⚠️ Sorry, I encountered an error. Please try again.';
 
+        botRow.appendChild(botAvatar);
         botRow.appendChild(botDiv);
         chatBox.insertBefore(botRow, indicator);
         chatBox.scrollTop = chatBox.scrollHeight;
