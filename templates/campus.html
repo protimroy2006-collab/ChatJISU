@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Life - JIS University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="landing-page">
+    <div class="navbar-wrapper">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="nav-logo-img">
+                <span>JISU</span>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/courses">Courses</a>
+                <a href="/admissions">Admissions</a>
+                <a href="/campus">Campus</a>
+            </div>
+            <div class="nav-right" style="display: flex; gap: 15px; align-items: center;">
+                <a href="/chatbot" class="btn-primary" id="desktop-ask-btn">Ask CHATJIS</a>
+                <button class="mobile-menu-btn" style="display: none; background: transparent; border: none; color: #00d4ff; font-size: 24px; cursor: pointer;"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero-section" style="min-height: 50vh; padding-top: 200px; padding-bottom: 50px;">
+        <div class="hero-content" style="max-width: 1000px; text-align: center; margin: 0 auto;">
+            <h1 style="font-size: 56px;">Beyond the <span class="text-gradient">Classroom</span></h1>
+            <p style="font-size: 22px;">Discover a vibrant ecosystem of innovation, sports, culture, and community at the heart of JIS University.</p>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top: 0; grid-template-columns: repeat(3, 1fr);">
+        <div class="feature-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-book-open-reader" style="color: #00d4ff;"></i></div>
+            <h3>Central Library</h3>
+            <p>A massive repository of physical books, international journals, and an extensive 24/7 digital resource portal.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-bed" style="color: #7000ff;"></i></div>
+            <h3>Modern Hostels</h3>
+            <p>Separate boy's and girl's hostels equipped with high-speed Wi-Fi, dining halls, and 24/7 security.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-bus" style="color: #00d4ff;"></i></div>
+            <h3>Transport Fleet</h3>
+            <p>Dedicated university buses ensuring safe and reliable commuting across Kolkata and neighboring districts.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-flask" style="color: #7000ff;"></i></div>
+            <h3>Advanced Labs</h3>
+            <p>State-of-the-art engineering, robotics, and pharmaceutical laboratories with cutting-edge equipment.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-volleyball" style="color: #00d4ff;"></i></div>
+            <h3>Sports Complex</h3>
+            <p>Indoor and outdoor athletic facilities including basketball courts, cricket grounds, and modern gymnasiums.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-masks-theater" style="color: #7000ff;"></i></div>
+            <h3>Cultural Clubs</h3>
+            <p>Join technical societies, photography clubs, and participate in our massive annual university fest.</p>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

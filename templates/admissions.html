@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - JIS University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="landing-page">
+    <div class="navbar-wrapper">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="nav-logo-img">
+                <span>JISU</span>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/courses">Courses</a>
+                <a href="/admissions">Admissions</a>
+                <a href="/campus">Campus</a>
+            </div>
+            <div class="nav-right" style="display: flex; gap: 15px; align-items: center;">
+                <a href="/chatbot" class="btn-primary" id="desktop-ask-btn">Ask CHATJIS</a>
+                <button class="mobile-menu-btn" style="display: none; background: transparent; border: none; color: #00d4ff; font-size: 24px; cursor: pointer;"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero-section" style="min-height: 50vh; padding-top: 200px; padding-bottom: 50px;">
+        <div class="hero-content" style="max-width: 1000px; text-align: center; margin: 0 auto;">
+            <h1 style="font-size: 56px;">Join the <span class="text-gradient">Future</span></h1>
+            <p style="font-size: 22px;">Take the first step towards a brilliant career. Discover our seamless admission process.</p>
+        </div>
+    </section>
+
+    <section class="about-section" style="padding-top: 0;">
+        <div class="about-content" style="max-width: 800px; margin: 0 auto;">
+            <div class="about-list">
+                <div class="list-item">
+                    <i class="fa-solid fa-1"></i>
+                    <div>
+                        <h5>Online Application</h5>
+                        <p>Fill out the application form on our official portal. Upload necessary academic documents and identification proofs.</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="fa-solid fa-2"></i>
+                    <div>
+                        <h5>Entrance Test (JET)</h5>
+                        <p>Qualify the JIS University Entrance Exam (JET) or submit national-level exam scores like WBJEE/JEE Main.</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="fa-solid fa-3"></i>
+                    <div>
+                        <h5>Counseling & Seat Allotment</h5>
+                        <p>Attend the counseling session where seats are allocated based on merit, availability, and eligibility criteria.</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="fa-solid fa-4"></i>
+                    <div>
+                        <h5>Document Verification & Enrollment</h5>
+                        <p>Verify original documents physically at the campus and pay the semester fees to confirm your enrollment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

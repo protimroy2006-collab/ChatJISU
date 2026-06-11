@@ -112,6 +112,19 @@ def home():
 def chatbot():
     return render_template('chat.html')
 
+# Internal Pages Routes
+@app.route('/courses')
+def courses():
+    return render_template('courses.html')
+
+@app.route('/admissions')
+def admissions():
+    return render_template('admissions.html')
+
+@app.route('/campus')
+def campus():
+    return render_template('campus.html')
+
 # API Endpoint for processing incoming chat payloads
 @app.route('/chat', methods=['POST'])
 def chat():

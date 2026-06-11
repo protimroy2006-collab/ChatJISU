@@ -1,52 +1,49 @@
 {
-    "admission process jiseee requirements rules how to join apply criteria fees": [
-        "JIS University offers undergraduate, postgraduate, and Ph.D. programs. You can apply online via the official website (jisuniversity.ac.in) or visit the campus admission cell.",
-        "Admissions are based on merit and entrance exams like JISUEE, WBJEE, or JEE Main depending on the course."
+    "admission process jiseee requirements rules how to join apply criteria fees eligibility": [
+        "JIS University offers a seamless admission process. Candidates can apply online via the official website or visit the campus admission cell.",
+        "Admissions for most programs are based on merit or the JIS University Entrance Exam (JET). For specialized courses like B.Tech, scores from WBJEE or JEE Main are highly valued."
+    ],
+    "engineering courses streams btech computer science ai ml cyber security data science": [
+        "The B.Tech engineering programs at JIS University are cutting edge. We offer B.Tech in Computer Science and Engineering (CSE) with specializations in Artificial Intelligence & Machine Learning (AI & ML), Cyber Security, Data Science, and IoT.",
+        "We also offer core engineering disciplines such as Civil, Electrical, and Electronics & Communication Engineering."
+    ],
+    "law courses llb bba-llb llm juridical science legal studies": [
+        "The School of Juridical Science offers BCI-approved programs including a 3-year LLB, an integrated 5-year BBA-LLB, and a 2-year LLM with specializations in Criminal, Corporate, and Constitutional Law."
+    ],
+    "management courses bba mba business hospital digital marketing": [
+        "JIS University's Management department offers industry-focused BBA and MBA programs. Specializations include Hospital Management, Digital Marketing, Finance, and Human Resource Management."
+    ],
+    "pharmacy courses bpharm dpharm mpharm clinical pharmacology": [
+        "Our Pharmacy programs are PCI-approved. We offer D.Pharm, B.Pharm, and M.Pharm with specializations in Pharmacology and Pharmaceutics, preparing students for the healthcare industry."
     ],
     "campus life hostels clubs sports facilities fest canteen culture wifi": [
-        "The JIS University campus features modern labs, a well-stocked central library, digital classrooms, separate hostels for boys and girls, and sports facilities.",
-        "Campus life is vibrant with various clubs (cultural, technical, sports) and our annual fest!"
+        "Campus life at JIS University is incredibly vibrant! The campus features modern labs, a central library, digital classrooms, separate hostels for boys and girls, and extensive sports facilities.",
+        "Students can join various cultural, technical, and sports clubs, and participate in our massive annual university fest."
     ],
     "examination routines dates semester schedules attendance 75 threshold marks": [
-        "Semester examinations are conducted twice a year (Odd Semesters in Nov/Dec and Even Semesters in May/June). Check the student portal for exam routines.",
-        "Make sure to maintain a minimum of 75% attendance to be eligible for university examinations."
-    ],
-    "courses streams btech bba mba pharmacy law subjects programs departments bsc": [
-        "JIS University offers programs in Engineering (B.Tech), Management (BBA/MBA), Pharmacy, Science, Law, and Hospitality management."
+        "Semester examinations are conducted twice a year (Odd Semesters in Nov/Dec and Even Semesters in May/June).",
+        "It is strictly required to maintain a minimum of 75% attendance to be eligible for university examinations."
     ],
     "location address routing maps where is it located area route agarpara kolkata": [
-        "JIS University is located at Agarpara, Kolkata, West Bengal (Near Kalyani Expressway)."
+        "JIS University is located at Agarpara, Kolkata, West Bengal (Near Kalyani Expressway), easily accessible via public transport and university shuttles."
     ],
-    "placement cell jobs package companies salary recruiting track record interview": [
-        "JIS University has a dedicated training and placement cell that conducts mock interviews and personality development classes.",
-        "Top recruiters include TCS, Cognizant, Wipro, Infosys, and many core engineering and pharma companies."
+    "placement cell jobs package companies salary recruiting track record interview internships": [
+        "Our highly active Training and Placement Cell ensures excellent career outcomes. We conduct mock interviews, aptitude training, and corporate grooming.",
+        "Top recruiters include TCS, Cognizant, Wipro, Infosys, and leading pharmaceutical and engineering firms."
     ],
-    "hi hello hey greetings good morning status": [
-        "Hello! Welcome to the upgraded CHATJIS terminal. Ask me any direct questions about admissions, campus environments, or academic examination procedures.",
-        "Greetings from CHATJIS! Ask me anything about admissions, exams, or campus life."
-    ],
-    "bye goodbye exit thank you clear close": [
-        "Thank you for using CHATJIS! Best of luck with your studies.",
-        "Goodbye! Have a great day at campus!"
-    ],
-    "fees structure cost tuition semester fees scholarship financial aid": [
-        "The fee structure varies by course. You can check the detailed fee breakdown for each program on the JIS University official website.",
-        "JIS University offers various scholarships based on academic merit, sports quota, and government schemes like the Swami Vivekananda Merit-cum-Means Scholarship."
+    "fees structure cost tuition semester fees scholarship financial aid svmcms": [
+        "Fee structures vary by program. However, JIS University is highly committed to affordable education and offers various scholarships based on academic merit, sports quota, and government schemes like the Swami Vivekananda Merit-cum-Means Scholarship."
     ],
     "transport bus facility route commute traveling shuttle": [
-        "JIS University provides dedicated transport facilities with buses plying across major routes in Kolkata and surrounding areas.",
-        "Students can opt for the transport facility during admission or at the start of the semester by contacting the transport department."
+        "Dedicated transport facilities are available. Our bus fleets ply across major routes in Kolkata and surrounding districts, ensuring a safe commute for students."
     ],
-    "library books digital resources reading room timings access": [
-        "The central library is well-equipped with thousands of books, journals, and e-resources. The reading room is open during college hours for all students.",
-        "Students can access the digital library portal for research papers and e-books using their university credentials."
+    "library books digital resources reading room timings access portal": [
+        "The central library is a hub of knowledge, equipped with thousands of books, physical journals, and e-resources. Students get 24/7 access to the digital library portal."
     ],
-    "faculty teachers professors hod dean contact vice chancellor": [
-        "JIS University boasts highly qualified faculty members from reputed institutions. Many hold Ph.D.s and have extensive industry experience.",
-        "You can find contact details for respective Deans and HODs in the departmental section of the university website."
+    "hi hello hey greetings good morning status": [
+        "Hello! Welcome to JIS University Intelligence. I am CHATJIS, your personal AI assistant. How can I help you explore our university today?"
     ],
-    "syllabus academic calendar holidays vacation summer winter break": [
-        "The academic calendar and detailed course syllabus are provided to students at the beginning of each semester.",
-        "Holiday lists and vacation schedules (summer/winter breaks) are published on the official notice board and student portal."
+    "bye goodbye exit thank you clear close": [
+        "Thank you for exploring JIS University! Best of luck with your future endeavors. Have a wonderful day!"
     ]
 }

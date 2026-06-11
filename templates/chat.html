@@ -12,7 +12,10 @@
     <div class="sidebar chat-sidebar">
         <div>
             <a href="/" class="sidebar-brand-link">
-                <div class="sidebar-brand"><i class="fa-solid fa-graduation-cap"></i> CHATJISU</div>
+                <div class="sidebar-brand">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="CHATJISU Logo" class="sidebar-logo-img">
+                    <span>CHATJISU</span>
+                </div>
             </a>
             <div class="sidebar-menu">
                 <div class="menu-item active"><i class="fa-solid fa-compass"></i> Assistant Desk</div>
@@ -21,19 +24,19 @@
             </div>
         </div>
         <div class="status-indicator">
-            <div class="status-dot orange-glow"></div> Online
+            <div class="status-dot primary-glow"></div> Online
         </div>
     </div>
 
     <div class="main-chat-window">
-        <div class="app-header dark-header">
+        <div class="app-header light-header">
             <h1>JISU Intelligence</h1>
-            <div class="header-info orange-text"><i class="fa-solid fa-bolt"></i> AI Powered</div>
+            <div class="header-info primary-text"><i class="fa-solid fa-bolt"></i> AI Powered</div>
         </div>
 
         <div class="chat-box" id="chatBox">
             <div class="message-row bot-row">
-                <div class="bot-avatar orange-bg"><i class="fa-solid fa-robot"></i></div>
+                <div class="bot-avatar primary-bg"><i class="fa-solid fa-robot"></i></div>
                 <div class="message bot-message">
                     Welcome! I am CHATJISU. How can I help you explore JIS University today?
                 </div>
@@ -43,16 +46,16 @@
             </div>
         </div>
 
-        <div class="quick-replies dark-quick-replies">
-            <button class="quick-reply-btn orange-border" onclick="sendQuickReply('Admissions')">Admissions</button>
-            <button class="quick-reply-btn orange-border" onclick="sendQuickReply('Fee Structure')">Fee Structure</button>
-            <button class="quick-reply-btn orange-border" onclick="sendQuickReply('Campus Life')">Campus Life</button>
+        <div class="quick-replies light-quick-replies">
+            <button class="quick-reply-btn primary-border" onclick="sendQuickReply('Admissions')">Admissions</button>
+            <button class="quick-reply-btn primary-border" onclick="sendQuickReply('Fee Structure')">Fee Structure</button>
+            <button class="quick-reply-btn primary-border" onclick="sendQuickReply('Campus Life')">Campus Life</button>
         </div>
 
-        <div class="input-wrapper dark-input">
+        <div class="input-wrapper light-input">
             <div class="input-container">
                 <input type="text" id="userInput" placeholder="Ask your question here..." onkeypress="handleKeyPress(event)" autocomplete="off">
-                <button onclick="sendMessage()" class="orange-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                <button onclick="sendMessage()" class="primary-btn"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
     </div>

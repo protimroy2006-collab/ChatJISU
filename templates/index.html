@@ -8,57 +8,59 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="landing-page">
-    <nav class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-graduation-cap"></i> JISU
-        </div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Courses</a>
-            <a href="#">Admissions</a>
-            <a href="#">Campus</a>
-        </div>
-        <a href="/chatbot" class="btn-primary">Ask CHATJIS</a>
-    </nav>
+    <div class="navbar-wrapper">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="CHATJISU Logo" class="nav-logo-img">
+                <span>JISU</span>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/courses">Courses</a>
+                <a href="/admissions">Admissions</a>
+                <a href="/campus">Campus</a>
+            </div>
+            <div class="nav-right" style="display: flex; gap: 15px; align-items: center;">
+                <a href="/chatbot" class="btn-primary" id="desktop-ask-btn">Ask CHATJIS</a>
+                <button class="mobile-menu-btn" style="display: none; background: transparent; border: none; color: #00d4ff; font-size: 24px; cursor: pointer;"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </nav>
+    </div>
 
     <header class="hero-section">
         <div class="hero-content">
-            <h1>A Better Learning<br>Journey Future Start Here</h1>
+            <h1>A Better Learning<br>Journey <span class="text-gradient">Future Start Here</span></h1>
             <p>Experience world-class education at JIS University. Explore our campus, academic programs, and vibrant student life to generate your future success.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn-primary">Take Course <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://www.jisuniversity.ac.in" target="_blank" class="btn-primary">Take Course <i class="fa-solid fa-arrow-right"></i></a>
                 <a href="/chatbot" class="btn-secondary">Launch AI Assistant</a>
             </div>
         </div>
         <div class="hero-image">
             <div class="circle-image-wrapper">
                 <img src="{{ url_for('static', filename='images/campus.jpg') }}" alt="JIS University Campus">
-                <div class="floating-badge badge-1">
-                    <i class="fa-solid fa-award"></i>
-                    <span>Latest Workshop</span>
-                </div>
             </div>
         </div>
     </header>
 
     <section class="features-section">
         <div class="feature-card">
-            <div class="icon-wrapper orange-bg"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div class="icon-wrapper primary-bg"><i class="fa-solid fa-chalkboard-user"></i></div>
             <h3>Exclusive Coach</h3>
             <p>Learn from industry leaders and experienced educators who guide your career.</p>
         </div>
         <div class="feature-card">
-            <div class="icon-wrapper orange-bg"><i class="fa-solid fa-lightbulb"></i></div>
+            <div class="icon-wrapper primary-bg"><i class="fa-solid fa-lightbulb"></i></div>
             <h3>Creative Minds</h3>
             <p>Foster innovation and hands-on learning experiences in modern labs.</p>
         </div>
         <div class="feature-card">
-            <div class="icon-wrapper orange-bg"><i class="fa-solid fa-video"></i></div>
+            <div class="icon-wrapper primary-bg"><i class="fa-solid fa-video"></i></div>
             <h3>Video Tutorials</h3>
             <p>Access modern digital learning tools and high-quality course materials.</p>
         </div>
         <div class="feature-card">
-            <div class="icon-wrapper orange-bg"><i class="fa-solid fa-trophy"></i></div>
+            <div class="icon-wrapper primary-bg"><i class="fa-solid fa-trophy"></i></div>
             <h3>Worlds Record</h3>
             <p>Be part of a globally recognized institution with outstanding achievements.</p>
         </div>
@@ -66,13 +68,13 @@
 
     <section class="about-section">
         <div class="about-image">
-            <div class="circle-image-wrapper border-orange">
+            <div class="circle-image-wrapper border-primary">
                 <img src="{{ url_for('static', filename='images/convocation.jpg') }}" alt="JIS University Convocation">
             </div>
         </div>
         <div class="about-content">
             <h4 class="section-subtitle">About Us</h4>
-            <h2>Creating a Lifelong Learning Best Community</h2>
+            <h2>Creating a Lifelong Learning <span class="text-gradient">Best Community</span></h2>
             <p>JIS University offers a dynamic environment where students can thrive both academically and personally. Our state-of-the-art facilities and flexible learning options ensure you get the best experience.</p>
             
             <div class="about-list">
@@ -92,8 +94,18 @@
                 </div>
             </div>
             
-            <a href="#" class="btn-primary mt-20">Discover More <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://www.jisuniversity.ac.in" target="_blank" class="btn-primary mt-20">Discover More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
+    <section class="contact-section">
+        <div class="contact-container">
+            <h3>Contact Information</h3>
+            <p>For more details, visit the official website:</p>
+            <a href="https://www.jisuniversity.ac.in" target="_blank" class="official-link">
+                <i class="fa-solid fa-link"></i> www.jisuniversity.ac.in
+            </a>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
