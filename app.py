@@ -18,7 +18,11 @@ else:
 
 app = Flask(__name__)
 
-DB_FILE = 'conversations.db'
+# Vercel uses a read-only filesystem, so we must store the SQLite DB in /tmp/
+if os.environ.get("VERCEL") == "1":
+    DB_FILE = '/tmp/conversations.db'
+else:
+    DB_FILE = 'conversations.db'
 
 # Function to initialize the database table
 def init_db():
