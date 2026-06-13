@@ -323,7 +323,7 @@ body::after {
    CHATBOT PAGE STYLES (3D Glass Theme)
    ============================ */
 .chat-page {
-    display: flex; height: 100vh; overflow: hidden; background-color: #030014;
+    display: flex; height: 100vh; height: 100dvh; overflow: hidden; background-color: #030014;
     padding: 40px 60px; gap: 40px;
     perspective: 2000px; /* Deep perspective for 3D dashboard */
 }
@@ -381,6 +381,8 @@ body::after {
 .light-header { background: rgba(0,0,0,0.2) !important; border-bottom: 1px solid rgba(255,255,255,0.05) !important; padding: 24px 40px; display: flex; justify-content: space-between; align-items: center;}
 .light-header h1 { color: #fff !important; font-size: 24px; font-weight: 700; margin: 0; }
 .light-header .header-info { background: rgba(0,212,255,0.1) !important; color: #00d4ff !important; border: 1px solid rgba(0,212,255,0.3); padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 0 15px rgba(0,212,255,0.1);}
+.mobile-back-btn { display: none; color: #fff; font-size: 20px; text-decoration: none; transition: 0.3s; }
+.mobile-back-btn:hover { color: #00d4ff; }
 
 .chat-box { flex: 1; padding: 40px 5%; overflow-y: auto; display: flex; flex-direction: column; gap: 24px; }
 .chat-box::-webkit-scrollbar { width: 6px; }
@@ -400,7 +402,9 @@ body::after {
 .light-quick-replies {
     background: transparent !important; border-top: none !important;
     padding: 0 5% 15px; display: flex; gap: 12px; overflow-x: auto;
+    -ms-overflow-style: none; scrollbar-width: none;
 }
+.light-quick-replies::-webkit-scrollbar { display: none; }
 .quick-reply-btn.primary-border {
     background: rgba(0,0,0,0.3) !important; border: 1px solid rgba(255,255,255,0.1) !important;
     color: #cbd5e1 !important; border-radius: 24px; padding: 12px 24px; font-size: 15px; font-weight: 500;
@@ -453,9 +457,18 @@ body::after {
     .features-section { grid-template-columns: 1fr; }
     .about-section, .hero-section { flex-direction: column; text-align: center; }
     .hero-image-container, .circle-image-wrapper { width: 100%; aspect-ratio: 1; margin-top: 40px;}
-    .chat-page { padding: 0; flex-direction: column; }
+    .chat-page { padding: 0; flex-direction: column; height: 100dvh;}
     .chat-sidebar { display: none; }
-    .main-chat-window { border-radius: 0; border: none; transform: none; animation: none;}
+    .main-chat-window { border-radius: 0; border: none; transform: none; animation: none; height: 100dvh;}
+    .light-header { padding: 15px 20px !important; }
+    .light-header h1 { font-size: 20px !important; }
+    .mobile-back-btn { display: block; }
+    .header-info { padding: 6px 12px !important; font-size: 12px !important; }
+    .chat-box { padding: 20px 5%; }
+    .message { max-width: 85%; padding: 12px 18px; font-size: 15px;}
+    .bot-avatar { width: 35px; height: 35px; font-size: 16px; }
+    .input-wrapper.light-input { padding: 10px 5% 15px !important; }
+    .primary-btn { width: 45px; height: 45px; }
     .navbar-wrapper { padding: 0 10px; }
     .navbar { width: 100%; padding: 15px 20px; border-radius: 20px; animation: none;}
     
