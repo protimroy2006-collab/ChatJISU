@@ -454,9 +454,42 @@ body::after {
 @keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
 
 @media(max-width: 768px) {
-    .features-section { grid-template-columns: 1fr; }
-    .about-section, .hero-section { flex-direction: column; text-align: center; }
-    .hero-image-container, .circle-image-wrapper { width: 100%; aspect-ratio: 1; margin-top: 40px;}
+    /* Global Resets for Mobile */
+    h1 { font-size: 42px !important; }
+    h2 { font-size: 32px !important; }
+    p { font-size: 16px !important; }
+    .btn-primary, .btn-secondary { font-size: 15px; padding: 12px 24px; text-align: center; justify-content: center;}
+
+    /* Navbar Mobile Fixes */
+    .navbar-wrapper { padding: 0 10px; top: 10px; }
+    .navbar { width: 100%; padding: 12px 20px; border-radius: 20px; animation: none;}
+    .nav-logo-img { height: 28px; }
+    .logo span { font-size: 20px; }
+
+    /* Hero Section Mobile */
+    .hero-section { flex-direction: column; text-align: center; padding: 120px 5% 60px; min-height: auto;}
+    .hero-content h1 { font-size: 42px; margin-bottom: 16px; }
+    .hero-content p { font-size: 16px; margin-bottom: 30px; }
+    .hero-buttons { flex-direction: column; gap: 15px; width: 100%; }
+    .hero-buttons a { width: 100%; }
+    .hero-image-container, .circle-image-wrapper { width: 100%; aspect-ratio: 1; margin-top: 40px; border-radius: 20px;}
+
+    /* Features Section */
+    .features-section { grid-template-columns: 1fr; gap: 20px; padding: 40px 5%; }
+    .feature-card { padding: 30px 20px; }
+
+    /* About Section */
+    .about-section { flex-direction: column; text-align: center; padding: 60px 5%; gap: 40px;}
+    .about-content h2 { margin-bottom: 16px; }
+    .list-item { padding: 16px; flex-direction: column; align-items: center; text-align: center; gap: 10px;}
+    .list-item i { font-size: 24px; }
+
+    /* Contact Section */
+    .contact-section { margin: 60px 5% 30px; padding: 40px 5%; border-radius: 24px; }
+    .contact-container h3 { font-size: 24px; }
+    .official-link { font-size: 15px; padding: 12px 24px; }
+
+    /* Chat Page Mobile fixes */
     .chat-page { padding: 0; flex-direction: column; height: 100dvh;}
     .chat-sidebar { display: none; }
     .main-chat-window { border-radius: 0; border: none; transform: none; animation: none; height: 100dvh;}
@@ -468,21 +501,19 @@ body::after {
     .message { max-width: 85%; padding: 12px 18px; font-size: 15px;}
     .bot-avatar { width: 35px; height: 35px; font-size: 16px; }
     .input-wrapper.light-input { padding: 10px 5% 15px !important; }
-    .primary-btn { width: 45px; height: 45px; }
-    .navbar-wrapper { padding: 0 10px; }
-    .navbar { width: 100%; padding: 15px 20px; border-radius: 20px; animation: none;}
+    .primary-btn { width: 45px; height: 45px; flex-shrink: 0; }
     
     /* Mobile Navigation Drawer */
     #desktop-ask-btn { display: none; }
     .mobile-menu-btn { display: block !important; }
     .nav-links {
-        position: fixed; top: 80px; right: -100%; width: 250px; height: calc(100vh - 100px);
+        position: fixed; top: 70px; right: -100%; width: 250px; height: calc(100vh - 90px);
         background: rgba(10, 10, 15, 0.95); backdrop-filter: blur(30px);
         flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 40px;
         border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.3);
         box-shadow: -10px 10px 40px rgba(0,0,0,0.8);
         transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    .nav-links.active { right: 20px; }
-    .nav-links a { font-size: 20px; padding: 15px; width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .nav-links.active { right: 10px; }
+    .nav-links a { font-size: 18px; padding: 15px; width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
 }
